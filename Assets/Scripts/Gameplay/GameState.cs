@@ -5,6 +5,7 @@ using UI;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using Zenject;
 
 namespace Gameplay
@@ -65,6 +66,17 @@ namespace Gameplay
             _input.Actions.Player.Move.started -= StartGame;
         }
 
+        public void StartNewGame()
+        {
+            Debug.Log(1);
+            fader.FadeIn(()=> SceneManager.LoadScene(0));
+        }
+        
+        public void Victory()
+        {
+            onVictory?.Invoke();
+        }
+
         public void AddScorePoints()
         {
             _currentScore++;
@@ -89,5 +101,7 @@ namespace Gameplay
         {
             onGameOver?.Invoke();
         }
+
+        
     }
 }

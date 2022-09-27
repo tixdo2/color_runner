@@ -71,6 +71,7 @@ namespace Player
         {
             movement.Disable();
             animator.SetTrigger(animationData.VictoryParameter);
+            _gameState.Victory();
         }
 
         private void OnTriggerEnter(Collider other)
