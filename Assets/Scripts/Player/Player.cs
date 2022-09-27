@@ -4,6 +4,7 @@ using Gameplay;
 using Obstacles;
 using Player.Movement;
 using Player.Visual;
+using Sound;
 using UnityEngine;
 using Zenject;
 
@@ -33,6 +34,7 @@ namespace Player
         [SerializeField] private PlayerMovement movement;
         [SerializeField] private PlayerScaler scaler;
         [SerializeField] private PlayerVisual visual;
+        [SerializeField] private SoundObserver tickSound;
         
         [Header("Parameters")] 
         [SerializeField] private PlayerParametersData parametersData;
@@ -104,6 +106,7 @@ namespace Player
             {
                 _gameState.AddScorePoints();
                 visual.Tick();
+                tickSound.Play();
             }
             else
             {
